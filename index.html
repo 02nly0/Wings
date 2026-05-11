@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wings System - Official Website</title>
+  <title>Wings System</title>
+  <meta name="description" content="Official Terms of Service and Privacy Policy for Wings System."/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="dark">
@@ -15,7 +16,10 @@
 
 <header>
   <div class="container header-container">
-    <a href="index.html" class="logo">Wings System</a>
+    <a href="/" class="logo">
+      Wings System
+    </a>
+
     <nav>
       <a href="terms.html">Terms</a>
       <a href="privacy.html">Privacy</a>
@@ -23,35 +27,39 @@
   </div>
 </header>
 
-<section class="hero-section">
+<section class="hero">
   <div class="container hero-content">
-    <div class="hero-badge">Wings Official Website</div>
-    
+    <span class="hero-badge">Wings Official Website</span>
+
     <h2>
-      Elevate Your Experience <br> 
-      <span>With Wings System</span>
+      Official Terms of Service <br> 
+      and Privacy Policy
     </h2>
 
     <p>
-      The ultimate automation system for Discord communities. 
-      Professional, secure, and built for performance.
+      Specifically for Wings System users.
     </p>
 
     <div class="buttons">
-      <a href="terms.html" class="btn">Terms of Service</a>
-      <a href="privacy.html" class="btn secondary">Privacy Policy</a>
+      <a class="btn" href="terms.html">Terms of Service</a>
+      <a class="btn secondary" href="privacy.html">Privacy Policy</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-content">
-    <div class="made-by">Beta <span class="heart">v2.1</span></div>
+    <div class="made-by">Beta<span class="heart"> v2.1</span></div>
     <p>© 2026 Wings System — All Rights Reserved.</p>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 83)) return false;
+  };
+</script>
 
 </body>
 </html>
