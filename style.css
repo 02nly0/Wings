@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap');
 
 :root {
   --bg: #050505;
@@ -10,11 +10,11 @@
   --shadow: rgba(0, 0, 0, 0.5);
 }
 
+/* تحسين الذاكرة ومنع التحديد */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* منع التحديد */
   -webkit-user-select: none;
   user-select: none;
 }
@@ -28,12 +28,14 @@ body {
   min-height: 100vh;
 }
 
-/* Background Animation */
+/* تحسين أداء الخلفية (Memory Optimization) */
 .bg-animation {
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
+  transform: translateZ(0); /* تحسين كرت الشاشة */
+  will-change: transform;
 }
 
 .glow {
@@ -43,11 +45,12 @@ body {
   border-radius: 50%;
   background: var(--glow);
   filter: blur(120px);
-  animation: moveGlow 15s infinite alternate ease-in-out;
+  animation: moveGlow 20s infinite alternate linear;
+  backface-visibility: hidden;
 }
 
 .glow:nth-child(1) { top: -100px; left: -100px; }
-.glow:nth-child(2) { bottom: -100px; right: -100px; animation-duration: 20s; }
+.glow:nth-child(2) { bottom: -100px; right: -100px; animation-duration: 25s; }
 
 @keyframes moveGlow {
   0% { transform: translate(0,0) scale(1); }
@@ -84,69 +87,44 @@ header .container {
   letter-spacing: -1px;
 }
 
-nav {
-  display: flex;
-  gap: 25px;
-}
-
+nav { display: flex; gap: 25px; }
 nav a {
   color: var(--secondary);
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
-  -webkit-user-select: auto; /* السماح بالضغط على الروابط */
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-user-select: auto;
   user-select: auto;
 }
-
 nav a:hover { color: #fff; }
 
-.hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-badge {
-  background: rgba(255,255,255,0.05);
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 13px;
+/* قسم الصفحات والبطاقات */
+.page { padding: 80px 0; }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
   border: 1px solid var(--border);
-  margin-bottom: 20px;
-  display: inline-block;
+  contain: content; /* تحسين الذاكرة */
 }
 
-.hero h2 {
-  font-size: clamp(40px, 8vw, 80px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  color: var(--secondary);
-  max-width: 600px;
-  margin: 0 auto 35px;
-  font-size: 18px;
-}
-
-.buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
+/* العناوين والخط العريض */
+h2 { font-weight: 800; font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; }
+h3 { font-weight: 800; margin-top: 25px; margin-bottom: 10px; color: #fff; }
+.hero h2 { font-size: clamp(40px, 8vw, 80px); letter-spacing: -2px; line-height: 1.1; }
 
 .btn {
   padding: 14px 28px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800; /* خط عريض جداً */
   transition: 0.3s;
   background: #fff;
   color: #000;
+  display: inline-block;
+  cursor: pointer;
   -webkit-user-select: auto;
   user-select: auto;
 }
@@ -154,35 +132,15 @@ nav a:hover { color: #fff; }
 .btn.secondary {
   background: transparent;
   color: #fff;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8); /* وضوح للأبيض */
 }
 
-.btn:hover { transform: translateY(-3px); opacity: 0.9; }
-
-footer {
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--secondary);
-  font-size: 14px;
-}
-
-.made-by {
-  color: #ffffff;
-  font-family: 'Cairo', sans-serif;
-  font-weight: 600;
-}
+footer { padding: 40px 0; border-top: 1px solid var(--border); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; color: var(--secondary); font-size: 14px; }
+.made-by { color: #ffffff; font-family: 'Cairo', sans-serif; font-weight: 800; }
 
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column-reverse;
-    gap: 20px;
-    text-align: center;
-  }
+  .footer-content { flex-direction: column-reverse; gap: 20px; text-align: center; }
   .buttons { flex-direction: column; }
 }
