@@ -1,7 +1,5 @@
-/* 1. الخطوط الأساسية */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap');
 
-/* 2. المتغيرات والألوان */
 :root {
   --bg: #050505;
   --text: #ffffff;
@@ -12,18 +10,23 @@
   --shadow: rgba(0, 0, 0, 0.5);
 }
 
-/* 3. تصفير التنسيقات ومنع التحديد (Protection Layer) */
+/* طبقة منع التحديد */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* منع تحديد النص لجميع الأجهزة */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge */
-  user-select: none;         /* Standard */
-  /* منع الوميض عند اللمس في الجوال */
+  -webkit-user-select: none; /* منع التحديد في متصفحات سحب */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* استثناء العناصر القابلة للتفاعل */
+a, button, .btn {
+  cursor: pointer;
+  -webkit-user-select: auto;
+  user-select: auto;
 }
 
 body {
@@ -35,14 +38,7 @@ body {
   min-height: 100vh;
 }
 
-/* 4. استثناءات (عناصر يجب أن تظل قابلة للنقر) */
-a, button, .btn, .logo {
-  cursor: pointer;
-  -webkit-user-select: auto;
-  user-select: auto;
-}
-
-/* 5. الخلفية المتحركة */
+/* Background Animation */
 .bg-animation {
   position: fixed;
   inset: 0;
@@ -68,13 +64,11 @@ a, button, .btn, .logo {
   100% { transform: translate(50px, 50px) scale(1.1); }
 }
 
-/* 6. التخطيط العام (Container) */
 .container {
   width: min(92%, 1200px);
   margin: auto;
 }
 
-/* 7. الهيدر (Header) */
 header {
   position: sticky;
   top: 0;
@@ -114,7 +108,6 @@ nav a {
 
 nav a:hover { color: #fff; }
 
-/* 8. قسم الهيرو (Hero Section) */
 .hero {
   height: 80vh;
   display: flex;
@@ -148,7 +141,6 @@ nav a:hover { color: #fff; }
   font-size: 18px;
 }
 
-/* 9. الأزرار (Buttons) */
 .buttons {
   display: flex;
   gap: 15px;
@@ -163,7 +155,6 @@ nav a:hover { color: #fff; }
   transition: 0.3s;
   background: #fff;
   color: #000;
-  display: inline-block;
 }
 
 .btn.secondary {
@@ -174,7 +165,6 @@ nav a:hover { color: #fff; }
 
 .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-/* 10. الفوتر (Footer) */
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
@@ -194,7 +184,6 @@ footer {
   font-weight: 600;
 }
 
-/* 11. التجاوب (Responsive) */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column-reverse;
@@ -202,5 +191,4 @@ footer {
     text-align: center;
   }
   .buttons { flex-direction: column; }
-  .hero h2 { font-size: 40px; }
 }
