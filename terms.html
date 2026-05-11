@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms of Service</title>
+  <title>Terms of Service - Wings System</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<body class="dark"> <!-- الثيم الأسود ثابت -->
 
 <div class="bg-animation">
   <div class="glow"></div>
@@ -14,71 +14,48 @@
 </div>
 
 <header>
-  <div class="container">
-
-    <h1 class="logo">
-      Terms of Service
-    </h1>
+  <div class="container header-container">
+    <!-- اللوجو يوجه للهب في نفس التبويب -->
+    <a href="/" class="logo">
+      Wings System
+    </a>
 
     <nav>
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy</a>
-
-      <button class="theme-toggle" id="themeToggle">
-        ☾
-      </button>
     </nav>
-
   </div>
 </header>
 
 <section class="page">
-
   <div class="container card">
+    <h2>Terms of Service</h2>
+    <p style="margin-bottom: 30px;">Last updated: May 2026</p>
 
-    <h2>Acceptance of Terms</h2>
-
+    <h3>Acceptance of Terms</h3>
     <p>
-      By using this application, you agree to these Terms of Service.
+      By using Wings System, you agree to comply with and be bound by these Terms of Service. If you do not agree, please refrain from using our services.
     </p>
 
-    <h2>Use of Service</h2>
-
+    <h3>Use of Service</h3>
     <p>
-      Users must use the service legally and responsibly.
+      Users must use the service legally and responsibly. Any attempt to abuse or disrupt the system performance is strictly prohibited.
     </p>
 
-    <h2>Limitation of Liability</h2>
-
+    <h3>Limitation of Liability</h3>
     <p>
-      We are not responsible for damages caused by use of this application.
+      Wings System and its developers are not responsible for any direct or indirect damages caused by the use of this application.
     </p>
-
   </div>
-
 </section>
 
 <footer>
-  <p>
-    © 2026 Wings ALL Rights Reserved.
-  </p>
+  <div class="container footer-content">
+    <!-- التوقيع أسفل اليسار باللون الأبيض -->
+    <div class="made-by">Made with<span class="heart">❤️</span></div>
+    <p>© 2026 Wings System — All Rights Reserved.</p>
+  </div>
 </footer>
-
-<script>
-const toggle = document.getElementById("themeToggle");
-
-toggle.onclick = () => {
-
-  document.body.classList.toggle("dark");
-
-  if(document.body.classList.contains("dark")){
-    toggle.innerHTML = "☀";
-  }else{
-    toggle.innerHTML = "☾";
-  }
-
-};
-</script>
 
 </body>
 </html>
