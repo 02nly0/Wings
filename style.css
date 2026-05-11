@@ -4,29 +4,21 @@
   --bg: #050505;
   --text: #ffffff;
   --card: #0f0f0f;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12); /* زدنا وضوح الحدود قليلاً */
   --secondary: #cfcfcf;
   --glow: rgba(255, 255, 255, 0.05);
-  --shadow: rgba(0, 0, 0, 0.5);
 }
 
-/* طبقة منع التحديد */
+/* طبقة منع التحديد لجميع الأجهزة */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-user-select: none; /* منع التحديد في متصفحات سحب */
+  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-}
-
-/* استثناء العناصر القابلة للتفاعل */
-a, button, .btn {
-  cursor: pointer;
-  -webkit-user-select: auto;
-  user-select: auto;
 }
 
 body {
@@ -38,7 +30,14 @@ body {
   min-height: 100vh;
 }
 
-/* Background Animation */
+/* استثناء العناصر التفاعلية لتعمل الأزرار */
+a, button, .btn {
+  cursor: pointer;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* الخلفية المتحركة */
 .bg-animation {
   position: fixed;
   inset: 0;
@@ -75,7 +74,7 @@ header {
   z-index: 1000;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid var(--border);
 }
 
@@ -91,76 +90,54 @@ header .container {
   font-weight: 800;
   color: #fff;
   text-decoration: none;
-  letter-spacing: -1px;
-}
-
-nav {
-  display: flex;
-  gap: 25px;
 }
 
 nav a {
   color: var(--secondary);
   text-decoration: none;
   font-size: 14px;
+  margin-left: 25px;
   transition: 0.3s;
+  font-weight: 600;
 }
 
 nav a:hover { color: #fff; }
 
-.hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-badge {
-  background: rgba(255,255,255,0.05);
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 13px;
+/* قسم الصفحات (Privacy & Terms) */
+.page { padding: 80px 0; }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
   border: 1px solid var(--border);
-  margin-bottom: 20px;
-  display: inline-block;
 }
 
-.hero h2 {
-  font-size: clamp(40px, 8vw, 80px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 1.1;
-  margin-bottom: 20px;
+/* تعديل الخطوط لتكون أوضح (نص الصفحة) */
+h2, h3 { 
+  color: #ffffff; 
+  font-weight: 800; /* جعل العناوين عريضة جداً */
+  margin-bottom: 15px;
 }
 
-.hero p {
-  color: var(--secondary);
-  max-width: 600px;
-  margin: 0 auto 35px;
-  font-size: 18px;
-}
-
-.buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
+/* الأزرار - تعديل الوضوح بناءً على طلبك */
 .btn {
   padding: 14px 28px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800; /* خط عريض جداً */
+  font-size: 16px;
   transition: 0.3s;
-  background: #fff;
+  background: #ffffff;
   color: #000;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn.secondary {
   background: transparent;
-  color: #fff;
-  border: 1px solid var(--border);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-shadow: 0px 1px 3px rgba(0,0,0,0.5); /* ظل لزيادة وضوح الأبيض */
 }
 
 .btn:hover { transform: translateY(-3px); opacity: 0.9; }
@@ -168,27 +145,16 @@ nav a:hover { color: #fff; }
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
+  text-align: center;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--secondary);
-  font-size: 14px;
 }
 
 .made-by {
   color: #ffffff;
-  font-family: 'Cairo', sans-serif;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column-reverse;
-    gap: 20px;
-    text-align: center;
-  }
-  .buttons { flex-direction: column; }
+  font-weight: 700;
 }
