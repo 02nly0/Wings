@@ -1,7 +1,8 @@
+/* 1. الخطوط الأساسية */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap');
 
+/* 2. المتغيرات والألوان */
 :root {
-  /* تم تثبيت الألوان على الثيم الغامق */
   --bg: #050505;
   --text: #ffffff;
   --card: #0f0f0f;
@@ -11,10 +12,18 @@
   --shadow: rgba(0, 0, 0, 0.5);
 }
 
+/* 3. تصفير التنسيقات ومنع التحديد (Protection Layer) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* منع تحديد النص لجميع الأجهزة */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* Standard */
+  /* منع الوميض عند اللمس في الجوال */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -26,7 +35,14 @@ body {
   min-height: 100vh;
 }
 
-/* Background Animation */
+/* 4. استثناءات (عناصر يجب أن تظل قابلة للنقر) */
+a, button, .btn, .logo {
+  cursor: pointer;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* 5. الخلفية المتحركة */
 .bg-animation {
   position: fixed;
   inset: 0;
@@ -52,13 +68,13 @@ body {
   100% { transform: translate(50px, 50px) scale(1.1); }
 }
 
-/* Container */
+/* 6. التخطيط العام (Container) */
 .container {
   width: min(92%, 1200px);
   margin: auto;
 }
 
-/* Header */
+/* 7. الهيدر (Header) */
 header {
   position: sticky;
   top: 0;
@@ -98,7 +114,7 @@ nav a {
 
 nav a:hover { color: #fff; }
 
-/* Hero Section */
+/* 8. قسم الهيرو (Hero Section) */
 .hero {
   height: 80vh;
   display: flex;
@@ -132,7 +148,7 @@ nav a:hover { color: #fff; }
   font-size: 18px;
 }
 
-/* Buttons */
+/* 9. الأزرار (Buttons) */
 .buttons {
   display: flex;
   gap: 15px;
@@ -147,6 +163,7 @@ nav a:hover { color: #fff; }
   transition: 0.3s;
   background: #fff;
   color: #000;
+  display: inline-block;
 }
 
 .btn.secondary {
@@ -157,7 +174,7 @@ nav a:hover { color: #fff; }
 
 .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-/* Footer */
+/* 10. الفوتر (Footer) */
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
@@ -172,16 +189,12 @@ footer {
 }
 
 .made-by {
-  color: #ffffff; /* لون أبيض صريح */
+  color: #ffffff;
   font-family: 'Cairo', sans-serif;
   font-weight: 600;
 }
 
-.heart {
-  color: #fff; /* لجعل القلب يظهر بشكل متناسق مع النص الأبيض أو استخدم اللون الأصلي للإيموجي */
-}
-
-/* Responsive */
+/* 11. التجاوب (Responsive) */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column-reverse;
@@ -189,4 +202,5 @@ footer {
     text-align: center;
   }
   .buttons { flex-direction: column; }
+  .hero h2 { font-size: 40px; }
 }
