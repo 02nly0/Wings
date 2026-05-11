@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy</title>
+  <title>Privacy Policy - Wings System</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<body class="dark"> <!-- الثيم الأسود أساسي -->
 
 <div class="bg-animation">
   <div class="glow"></div>
@@ -14,71 +14,48 @@
 </div>
 
 <header>
-  <div class="container">
-
-    <h1 class="logo">
-      Privacy Policy
-    </h1>
+  <div class="container header-container">
+    <!-- اللوجو يرجعك للهب في نفس الصفحة -->
+    <a href="/" class="logo">
+      Wings System
+    </a>
 
     <nav>
       <a href="index.html">Home</a>
       <a href="terms.html">Terms</a>
-
-      <button class="theme-toggle" id="themeToggle">
-        ☾
-      </button>
     </nav>
-
   </div>
 </header>
 
 <section class="page">
-
   <div class="container card">
+    <h2>Privacy Policy</h2>
+    <p style="margin-bottom: 30px;">Last updated: May 2026</p>
 
-    <h2>Information Collection</h2>
-
+    <h3>Information Collection</h3>
     <p>
-      We may collect basic user data such as email and usage information.
+      We may collect basic user data such as Discord IDs and usage information to provide a better experience within Wings System.
     </p>
 
-    <h2>How We Use Data</h2>
-
+    <h3>How We Use Data</h3>
     <p>
-      Data helps improve our services and security.
+      Data helps improve our automation services, ensure security, and maintain the performance of the system.
     </p>
 
-    <h2>Contact</h2>
-
+    <h3>Contact</h3>
     <p>
-      support@example.com
+      For any inquiries, please contact our support team via our official Discord server.
     </p>
-
   </div>
-
 </section>
 
 <footer>
-  <p>
-    © 2026 Wings ALL Rights Reserved.
-  </p>
+  <div class="container footer-content">
+    <!-- التوقيع أسفل اليسار باللون الأبيض -->
+    <div class="made-by">صنع بـ <span class="heart">❤️</span></div>
+    <p>© 2026 Wings System — All Rights Reserved.</p>
+  </div>
 </footer>
-
-<script>
-const toggle = document.getElementById("themeToggle");
-
-toggle.onclick = () => {
-
-  document.body.classList.toggle("dark");
-
-  if(document.body.classList.contains("dark")){
-    toggle.innerHTML = "☀";
-  }else{
-    toggle.innerHTML = "☾";
-  }
-
-};
-</script>
 
 </body>
 </html>
