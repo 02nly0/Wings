@@ -9,7 +9,7 @@
   --glow: rgba(255, 255, 255, 0.05);
 }
 
-/* الأساسيات وتحسين الذاكرة */
+/* منع التحديد وتحسين الذاكرة */
 * {
   margin: 0;
   padding: 0;
@@ -27,13 +27,13 @@ body {
   min-height: 100vh;
 }
 
-/* أنيميشن الخلفية (Glow) */
+/* --- إعادة الأنيميشن المفقود مع تحسين الذاكرة --- */
 .bg-animation {
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  transform: translateZ(0);
+  transform: translateZ(0); /* تشغيل تسريع الـ GPU */
 }
 
 .glow {
@@ -44,7 +44,7 @@ body {
   background: var(--glow);
   filter: blur(120px);
   animation: moveGlow 20s infinite alternate linear;
-  will-change: transform;
+  will-change: transform; /* إخبار المتصفح بالأنيميشن لتحسين الرام */
 }
 
 .glow:nth-child(1) { top: -100px; left: -100px; }
@@ -55,61 +55,61 @@ body {
   100% { transform: translate(60px, 60px) scale(1.1); }
 }
 
-/* --- أنيميشن الأزرار المطور --- */
+.container { width: min(92%, 1200px); margin: auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid var(--border);
+}
+
+header .container { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+
+.logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -1px; }
+
+nav { display: flex; gap: 25px; }
+nav a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+nav a:hover { color: #fff; }
+
+.page { padding: 80px 0; }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  contain: content;
+}
+
+h2 { font-weight: 800; font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; }
+h3 { font-weight: 800; margin-top: 25px; margin-bottom: 10px; color: #fff; }
+
 .btn {
-  padding: 14px 32px;
+  padding: 14px 28px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 800;
-  font-size: 16px;
+  font-weight: 800; /* خط عريض جداً */
+  transition: 0.3s;
+  background: #fff;
+  color: #000;
   display: inline-block;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* أنيميشن سلس */
-  background: #ffffff;
-  color: #000000;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
 
-/* تأثير عند تمرير الماوس على الزر الأساسي */
-.btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-  background: #f0f0f0;
-}
-
-/* تأثير الزر الثاني (Privacy) */
 .btn.secondary {
   background: transparent;
-  color: #ffffff;
+  color: #fff;
   border: 2px solid var(--border);
-  backdrop-filter: blur(5px);
 }
 
-.btn.secondary:hover {
-  border-color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-/* أنيميشن الضغط (Active) */
-.btn:active {
-  transform: translateY(1px) scale(0.98);
-}
-
-/* باقي التنسيقات */
-.container { width: min(92%, 1200px); margin: auto; }
-header {
-  position: sticky; top: 0; z-index: 1000;
-  backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-  background: rgba(0, 0, 0, 0.7); border-bottom: 1px solid var(--border);
-}
-.logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
-nav a { color: var(--secondary); text-decoration: none; font-size: 14px; font-weight: 700; margin-left: 20px; transition: 0.3s; }
-nav a:hover { color: #fff; transform: translateY(-2px); display: inline-block; }
-
-.card {
-  background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 24px;
-  border: 1px solid var(--border); contain: content;
-}
+footer { padding: 40px 0; border-top: 1px solid var(--border); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+.made-by { color: #ffffff; font-weight: 800; }
