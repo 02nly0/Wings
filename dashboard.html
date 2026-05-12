@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wings - Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark">
+
+<div class="bg-animation"><div class="glow"></div><div class="glow"></div></div>
+
+<header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">Wings System</a>
+    <div class="user-profile">
+      <span id="user-name">Username</span>
+      <img src="avatar.png" id="user-avatar" style="width: 35px; border-radius: 50%; margin-left: 10px;">
+    </div>
+  </div>
+</header>
+
+<section class="page">
+  <div class="container">
+    <h2 style="margin-bottom: 30px;">Welcome Back!</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+      <div class="card" style="padding: 20px; text-align: center;">
+        <i class="fas fa-server fa-2x" style="color: #fff; margin-bottom: 10px;"></i>
+        <h3>120</h3>
+        <p>Total Servers</p>
+      </div>
+      <div class="card" style="padding: 20px; text-align: center;">
+        <i class="fas fa-users fa-2x" style="color: #fff; margin-bottom: 10px;"></i>
+        <h3>15.4k</h3>
+        <p>Total Users</p>
+      </div>
+    </div>
+
+    <h3>Select a Server</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+      <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
+        <span>My Awesome Server</span>
+        <a href="#" class="btn" style="padding: 8px 15px; font-size: 12px;">Edit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
